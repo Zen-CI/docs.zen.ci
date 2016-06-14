@@ -35,14 +35,14 @@ Use 'Private' to give access to private repository.
 It will redirect you on github.com to ask you grant such permissions to ZenCI.
 After you approve this request, you get forwarded back on **ZenCI** website to page where you can see your own repositories.
 
-![Enable](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_1.37.47_PM.png) {.img-responsive .img-thumbnail}
+![Enable](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_1.37.47_PM.png) 
 
 Please click [Enable] button for this new repository.
 
 We need to allow **ZenCI** to access your hosting account via SSH. 
 
 On settings page for this repository you can see a public key for SSH access:
-![SSH](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_1.38.05_PM.png) {.img-responsive .img-thumbnail}
+![SSH](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_1.38.05_PM.png) 
 
 Copy public key to file **~/.ssh/authorized_keys** on your hosting account. 
 Make sure that you have **.ssh** folder and permissions is set to **0600** on file authorized_keys and **0700** on **.ssh** folder . 
@@ -79,11 +79,11 @@ deploy:
 ```
 
 Now you can see what **ZenCI** is reacting on your action repo page.
-![ZenCI](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_1.47.09_PM.png) {.img-responsive .img-thumbnail}
+![ZenCI](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_1.47.09_PM.png) 
 
 **ZenCI** provide [deploy log](https://zen.ci/ZenCI-example/drupal-starter-kit/deploy/deploy-ZenCI-example_drupal-starter-kit_master-7237):
 
-![deploy log](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_1.48.25_PM.png) {.img-responsive .img-thumbnail}
+![deploy log](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_1.48.25_PM.png) 
 
 **Congratulations!** You deployed your [Drupal site](drupal7.examples.zen.ci)!
 

@@ -25,10 +25,10 @@ Also we replaced **env_vars: tests** by **--directory sites/all/modules/custom/v
 
 As soon as code pushed to repository, test started:
 
-![VIews test](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_7.56.44_PM.png) {.img-responsive .img-thumbnail}
+![VIews test](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_7.56.44_PM.png) 
 
 *Test time depends on selected machine and amount of tests.*
 
 [Test result](https://zen.ci/ZenCI-example/drupal-starter-kit/test/test-php53-ZenCI-example_drupal-starter-kit_master-7292):
 
-![Views test](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_8.24.25_PM.png) {.img-responsive .img-thumbnail}
+![Views test](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_8.24.25_PM.png) 

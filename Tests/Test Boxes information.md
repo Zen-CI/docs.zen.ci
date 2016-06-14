@@ -83,3 +83,4 @@ leam-php70 | CentOS6 | Nginx Apache Mysql mod_php 7.0.x with xcache
 We are working on adding more prebuilt images.
 
 If you need a custom build (OS, software and configuration) - [contact us](https://zen.ci/contact).
+Drupal 7.x tests

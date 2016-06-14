@@ -110,11 +110,11 @@ Go back on GitHub and create a branch **dev** from your master.
 
 **ZenCI** will create a separated site on **QA** server for this branch under name http://dev.qa.drupal7.examples.zen.ci
 
-![dev](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_3.52.58_PM.png) {.img-responsive .img-thumbnail}
+![dev](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_3.52.58_PM.png) 
 
 You can update **scripts/qa_deploy_init.sh** script to use latest production database dump to make a dev copy of your website.
 
-![dev deploy](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_3.53.15_PM.png) {.img-responsive .img-thumbnail}
+![dev deploy](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_3.53.15_PM.png) 
 
 Deploy log for new branch **dev** available [here](https://zen.ci/ZenCI-example/drupal-starter-kit/deploy/deploy-ZenCI-example_drupal-starter-kit_dev-7264).
 
@@ -135,12 +135,12 @@ drush vset theme_default seven
 
 As soon as we commit it to **dev** branch, **ZenCI** [deploy this script](https://zen.ci/ZenCI-example/drupal-starter-kit/deploy/deploy-ZenCI-example_drupal-starter-kit_dev-7270) and theme get changed to **seven**
 
-![dev seven](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_4.03.07_PM.png) {.img-responsive .img-thumbnail}
+![dev seven](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_4.03.07_PM.png) 
 
 Now we can create  **PR** to **master**.
 **ZenCI** [process](https://zen.ci/ZenCI-example/drupal-starter-kit/deploy/deploy-ZenCI-example_drupal-starter-kit_2-7272) this request and create http://2.dev.qa.drupal7.examples.zen.ci website that already has theme **seven** as default.
 
-![pr deploy](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_4.07.26_PM.png) {.img-responsive .img-thumbnail}
+![pr deploy](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_4.07.26_PM.png) 
 
 **When you close PR - domain, database and github cloned code for PR will be deleted.**
 

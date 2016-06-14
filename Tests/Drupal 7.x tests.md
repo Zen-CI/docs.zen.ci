@@ -60,7 +60,7 @@ test:
 ```
 
 When you **push** changes for **.zenci.yml** file  **ZenCI** will start all **Drupal 7** tests.
-![ZenCI](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_4.37.16_PM.png) {.img-responsive .img-thumbnail}
+![ZenCI](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_4.37.16_PM.png) 
 
 Test time depends on selected machine and amount of tests.
 
@@ -76,9 +76,9 @@ https://github.com/Zen-CI/drupal-starter-kit optimized to run **Drupal 7** tests
 
 When tests finished - timeline updated with status:
 
-![timeline](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_5.20.52_PM.png) {.img-responsive .img-thumbnail}
+![timeline](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_5.20.52_PM.png) 
 
 [Test log](https://zen.ci/ZenCI-example/drupal-starter-kit/test/test-php53-ZenCI-example_drupal-starter-kit_master-7281) has a full log as well:
 
-![test log](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_5.21.48_PM.png) {.img-responsive .img-thumbnail}
+![test log](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_5.21.48_PM.png) 
 
