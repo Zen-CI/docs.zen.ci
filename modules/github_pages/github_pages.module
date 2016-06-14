@@ -290,7 +290,6 @@ function _github_page_load($path) {
   $config = config('github_pages.settings');
   $root = $config->get('directory');
   $file = $root . '/' . $path;
-  backdrop_set_message($file);
 
   if(is_file($file)) {
     $pathinfo = pathinfo($file);
@@ -308,7 +307,7 @@ function _github_page_load($path) {
     $page['title'] = $pathinfo['filename'];
 
     //check for title
-    if($content[0][0] == '#') {
+    if(isset($content[0]) && $content[0][0] == '#') {
       for($pos = 0; $pos < mb_strlen($content[0]); $pos ++){
         if($content[0][$pos] != '#'){
           break;
