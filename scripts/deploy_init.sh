@@ -18,6 +18,9 @@ mkdir -p $DOCROOT/layouts/contrib
 #link documentation
 ln -s $ZENCI_DEPLOY_DIR/Documentation $DOCROOT/files/
 
+#copy config
+cp $ZENCI_DEPLOY_DIR/settings/config/*.json $DOCROOT/files/config/active/
+
 cd $DOCROOT/modules
 ln -s $ZENCI_DEPLOY_DIR/modules ./custom
 
@@ -44,3 +47,6 @@ echo "Enable Modules"
 for module in `cat $ZENCI_DEPLOY_DIR/settings/modules.enable`; do
   php $ZENCI_DEPLOY_DIR/scripts/console.sh --root="$DOCROOT" --enable $module
 done
+
+echo "Import Docs"
+$ZENCI_DEPLOY_DIR/modules/github_pages/github_pages_shell.php --root $DOCROOT
