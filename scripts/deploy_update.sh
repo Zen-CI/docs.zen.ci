@@ -14,6 +14,11 @@ for project in `cat $ZENCI_DEPLOY_DIR/settings/contrib.list`; do
   sh $ZENCI_DEPLOY_DIR/scripts/contrib.sh $repo $branch
 done
 
+#fix for radix
+if [ ! -L "$HOME/github/backdrop-contrib/radix_layouts/default" ]; then
+  ln -s $HOME/github/backdrop-contrib/radix_layouts/default ./radix_layouts
+fi
+
 echo "Enable Modules"
 
 for module in `cat $ZENCI_DEPLOY_DIR/settings/modules.enable`; do
