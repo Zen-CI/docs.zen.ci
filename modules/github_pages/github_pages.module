@@ -139,6 +139,7 @@ function github_pages_menu_item_update($path_alias, $menu) {
     ->execute()
     ->fetchAssoc();
   if($menu_item) {
+    $menu_item = menu_link_load($menu_item['mlid']);
     $page_load_path = mb_substr($path_alias['source'], mb_strlen('github_pages/'));
     $page = github_page_load($page_load_path);
     $menu_item['link_title'] = $page['title'];
