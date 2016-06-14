@@ -74,22 +74,22 @@ function github_pages_menu() {
 function github_pages_path_alias_update($verbose = FALSE) {
   $config = config('github_pages.settings');
   $directory_path = $config->get('directory');
-  
+
   // Remove trailing slash.
   if($directory_path[ mb_strlen($directory_path) - 1 ] == '/') {
     //Need to compare to public:// or private://
     $directory_path = mb_substr($directory_path, 0, -1);
   }
-  
+
   $directory_path_skip_length = mb_strlen($directory_path) + 1;
-  
+
   $files = file_scan_directory($directory_path,  '/.*\.(md|MD)$/');
-  
+
   $sorted_files = array();
   foreach($files as $file) {
-    $sorted_files[] = $file->uri; 
+    $sorted_files[] = $file->uri;
   }
-  
+
   usort($sorted_files, function($a, $b) {
     return strlen($a) - strlen($b);
   });
@@ -100,10 +100,10 @@ function github_pages_path_alias_update($verbose = FALSE) {
   }
 
   foreach($sorted_files as $filepath) {
-    
+
     // Route path via github_pages.
     $source = 'github_pages/' . mb_substr($filepath, $directory_path_skip_length);
-    
+
     // Alias path from root. Without MD on the end.
     $path = mb_substr($filepath, $directory_path_skip_length , -3 );
 
@@ -114,7 +114,7 @@ function github_pages_path_alias_update($verbose = FALSE) {
       );
       if($verbose) {
         echo t('Create !alias => !source', array('!alias' => $path_alias['alias'], '!source' => $path_alias['source'])) . "\n";
-      }      
+      }
       path_save($path_alias);
       if($menu = $config->get('menu')){
         github_pages_menu_item_add($path_alias, $menu);
@@ -146,6 +146,7 @@ function github_pages_menu_item_update($path_alias, $menu) {
     menu_link_save($menu_item);
   }
 }
+
 /**
  * Delete menu item.
  */
@@ -168,20 +169,20 @@ function github_pages_menu_item_add($path_alias, $menu) {
   $page_load_path = mb_substr($path_alias['source'], mb_strlen('github_pages/'));
 
   $plid = 0;
-  
+
   //If directory structure present, find a parent menu item.
   if(FALSE !== strpos($page_load_path, '/')) {
     $tree = explode("/", $page_load_path);
     $tree_count = count($tree);
     for($i = $tree_count - 2; $i >= 0; $i--) {
-      
+
       $parent_source = '';
       for($n = 0; $n <= $i; $n ++){
         $parent_source .= '/' . $tree[$n];
       }
       // Remove first '/'.
       $parent_source = mb_substr($parent_source, 1);
-      
+
       $parent_link_path= FALSE;
       if($page_parent = github_page_load($parent_source . '.md')){
         $parent_link_path = 'github_pages/' . $parent_source . '.md';
@@ -189,7 +190,7 @@ function github_pages_menu_item_add($path_alias, $menu) {
       elseif($page_parent = github_page_load($parent_source . '.MD')){
         $parent_link_path = 'github_pages/' . $parent_source . '.MD';
       }
-      
+
       if($parent_link_path){
         $parent_link = db_select('menu_links', 'ml')
           ->fields('ml')
@@ -204,11 +205,11 @@ function github_pages_menu_item_add($path_alias, $menu) {
     }
   }
   $page = github_page_load($page_load_path);
-  
+
   $item = array(
-    'link_title' => $page['title'], 
-    'mlid' => 0, 
-    'plid' => $plid, 
+    'link_title' => $page['title'],
+    'mlid' => 0,
+    'plid' => $plid,
     'menu_name' => $menu,
     'weight' => 0,
     'link_path' => $path_alias['source'],
@@ -218,7 +219,7 @@ function github_pages_menu_item_add($path_alias, $menu) {
     'hidden' => 0,
     'has_children' => 0,
   );
-  
+
   menu_link_save($item);
 }
 
@@ -228,7 +229,7 @@ function github_pages_menu_item_add($path_alias, $menu) {
 function github_pages_path_alias_clean($verbose = FALSE) {
   $config = config('github_pages.settings');
   $directory_path = $config->get('directory');
-  
+
   $select = db_select('url_alias');
   $select->condition('source', db_like('github_pages') . '%', 'LIKE');
   $path_aliases = $select
@@ -237,7 +238,7 @@ function github_pages_path_alias_clean($verbose = FALSE) {
     ->execute()
     ->fetchAll();
   foreach($path_aliases as $alias) {
-    
+
     $filepath = $directory_path . '/' . $alias->alias . mb_substr($alias->source, -3);
     if(!is_file($filepath)) {
       if($verbose) {
@@ -260,9 +261,9 @@ function github_pages_path_alias_clean($verbose = FALSE) {
  *  - html, markdown transformed to html.
  */
 function github_page_load($path, $map = FALSE) {
-  
+
   if(count($map) > 2) {
-    
+
     //we have directories here.
     $config = config('github_pages.settings');
     $directory_path = $config->get('directory');
@@ -270,7 +271,7 @@ function github_page_load($path, $map = FALSE) {
       // $path_array contain multiple elements but $path one is not dir.
       return FALSE;
     }
-    
+
     $path = '';
     for($index = 1; $index < count($map) ; $index++) {
       $path .= '/' . $map[$index];
@@ -285,7 +286,7 @@ function github_page_load($path, $map = FALSE) {
 /**
  * Internal function.
  * @see github_page_load().
- */ 
+ */
 function _github_page_load($path) {
 
   $config = config('github_pages.settings');
@@ -294,15 +295,15 @@ function _github_page_load($path) {
 
   if(is_file($file)) {
     $pathinfo = pathinfo($file);
-     
+
     // Allow access to MD files only.
     if(!isset($pathinfo['extension'])) {
       return FALSE;
     }
     if(strtolower($pathinfo['extension']) != 'md') {
       return FALSE;
-    } 
-    
+    }
+
     $content = file($file);
     $page = array();
     $page['title'] = $pathinfo['filename'];
@@ -320,7 +321,7 @@ function _github_page_load($path) {
     $content = implode("", $content);
 
     $page['original'] = $content;
-    
+
     if($config->get('markdown')) {
       $Extra = new ParsedownExtra();
       $page['html'] = $Extra->text($content);
@@ -329,9 +330,9 @@ function _github_page_load($path) {
       $Parsedown = new Parsedown();
       $page['html'] = $Parsedown->text($content);
     }
-    
+
     return $page;
-    
+
   }
   return FALSE;
 }
