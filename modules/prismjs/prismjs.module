@@ -7,7 +7,7 @@
 /**
  * Implements hook_init
  */
-function prismjs_init($node, $view_mode) {
+function prismjs_init() {
   drupal_add_css(backdrop_get_path('module', 'prismjs') . '/css/prismjs.css');
   drupal_add_js(backdrop_get_path('module', 'prismjs') . '/js/prismjs.js');
 
