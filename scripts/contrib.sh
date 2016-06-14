@@ -37,7 +37,8 @@ else
   fi
 fi
 
-TYPE=`cat $CONTRIB_DEPLOY_DIR/$repo.info|grep ^type|awk -F= '{print$1}'|xargs`
+INFOFILE=`find $CONTRIB_DEPLOY_DIR -name *.info|tail -n 1`
+TYPE=`cat $INFOFILE|grep ^type|awk -F= '{print$2}'|xargs`
 
 TARGETFOLDER="";
 
