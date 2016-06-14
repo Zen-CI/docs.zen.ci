@@ -94,6 +94,11 @@ function github_pages_path_alias_update($verbose = FALSE) {
     return strlen($a) - strlen($b);
   });
 
+  if($verbose) {
+    echo "Directory : " . $directory_path . "\n";
+    print_r($sorted_files);
+  }
+
   foreach($sorted_files as $filepath) {
     
     // Route path via github_pages.
