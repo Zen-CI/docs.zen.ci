@@ -16,7 +16,7 @@ done
 
 #fix for radix
 if [ ! -L "$HOME/github/backdrop-contrib/radix_layouts/default" ]; then
-  ln -s $HOME/github/backdrop-contrib/radix_layouts/default ./radix_layouts
+  ln -s $HOME/github/backdrop-contrib/radix_layouts/default $DOCROOT/layouts/contrib/radix_layouts
 fi
 
 echo "Enable Modules"
