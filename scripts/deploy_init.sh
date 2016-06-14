@@ -21,6 +21,8 @@ ln -s $ZENCI_DEPLOY_DIR/Documentation $DOCROOT/files/
 #copy config
 cp $ZENCI_DEPLOY_DIR/settings/config/*.json $DOCROOT/files/config/active/
 
+cp $ZENCI_DEPLOY_DIR/settings/config/config.htaccess $DOCROOT/files/config/.htaccess
+
 cd $DOCROOT/modules
 ln -s $ZENCI_DEPLOY_DIR/modules ./custom
 
