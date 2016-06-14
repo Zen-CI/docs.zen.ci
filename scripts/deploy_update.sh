@@ -6,15 +6,13 @@ echo "Full site path: $DOCROOT"
 # Go to domain directory.
 cd $DOCROOT
 
-echo "Contrib modules"
-sh $ZENCI_DEPLOY_DIR/scripts/contrib_modules.sh
-
-echo "Contrib themes"
-sh $ZENCI_DEPLOY_DIR/scripts/contrib_themes.sh
-
-echo "Contrib layouts"
-sh $ZENCI_DEPLOY_DIR/scripts/contrib_layouts.sh
-
+echo "Process contrib"
+for project in `cat $ZENCI_DEPLOY_DIR/settings/contrib.list`; do
+  repo=`echo $project|awk -F/ '{print$1}'`
+  branch=`echo $project|awk -F/ '{print$2}'`
+  
+  sh $ZENCI_DEPLOY_DIR/scripts/contrib.sh $repo $branch
+fi
 
 echo "Enable Modules"
 
