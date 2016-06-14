@@ -26,7 +26,10 @@ for layout in `cat $ZENCI_DEPLOY_DIR/settings/contrib_layouts.list`; do
       git checkout $branch
     fi
     cd $TARGETFOLDER
-    ln -s $LAYOUT_DEPLOY_DIR ./$repo
+  fi
+  
+  if [ -f "TARGETFOLDER/$repo" ] ; then
+    ln -s $LAYOUT_DEPLOY_DIR $TARGETFOLDER/$repo
   fi
   
 done

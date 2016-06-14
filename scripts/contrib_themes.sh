@@ -26,6 +26,9 @@ for module in `cat $ZENCI_DEPLOY_DIR/settings/contrib_themes.list`; do
       git checkout $branch
     fi
     cd $TARGETFOLDER
-    ln -s $THEME_DEPLOY_DIR ./$repo
+  fi
+  
+  if [ -f "TARGETFOLDER/$repo" ] ; then
+    ln -s $THEME_DEPLOY_DIR $TARGETFOLDER/$repo
   fi
 done

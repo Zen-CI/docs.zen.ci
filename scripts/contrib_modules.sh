@@ -26,7 +26,9 @@ for module in `cat $ZENCI_DEPLOY_DIR/settings/contrib_modules.list`; do
       git checkout $branch
     fi
     cd $TARGETFOLDER
-    ln -s $MODULE_DEPLOY_DIR ./$repo
   fi
-  
+  if [ -f "TARGETFOLDER/$repo" ] ; then
+    ln -s $MODULE_DEPLOY_DIR $TARGETFOLDER/$repo
+  fi
+
 done

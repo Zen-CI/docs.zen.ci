@@ -52,6 +52,3 @@ for module in `cat $ZENCI_DEPLOY_DIR/settings/modules.enable`; do
 done
 
 php $ZENCI_DEPLOY_DIR/scripts/console.sh --root="$DOCROOT" --cleancache
-
-echo "Import Docs"
-php $ZENCI_DEPLOY_DIR/modules/github_pages/github_pages_shell.php --root $DOCROOT
