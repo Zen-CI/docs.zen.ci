@@ -30,10 +30,10 @@ cp $BACKDROP_DEPLOY/settings.php ./
 
 # Link directories to github folder
 
-echo '' >> settings.php
-echo '$config_directories[\'active\'] =\''$ZENCI_DEPLOY_DIR'/settings/config/active\';' >> settings.php
-echo '' >> settings.php
-echo '$config_directories[\'staging\'] =\''$ZENCI_DEPLOY_DIR'/settings/config/staging\';' >> settings.php
+cat >> settings.php  <<_EOF
+\$config_directories['active'] = '$ZENCI_DEPLOY_DIR/settings/config/active';
+\$config_directories['staging'] = '$ZENCI_DEPLOY_DIR/settings/config/staging';
+_EOF
 
 # Unlink files and copy instead.
 rm -f files
