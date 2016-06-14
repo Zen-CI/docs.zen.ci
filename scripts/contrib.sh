@@ -12,11 +12,11 @@ if [ "$2" != "" ]; then
   branch="$2"
 fi
 
-GITHUBDIR="$HOME/github"
-CONTRIB_DEPLOY_DIR="$GITHUBDIR/backdrop-contrib/$repo/$branch"
+GITHUBDIR="$HOME/github/backdrop-contrib"
+CONTRIB_DEPLOY_DIR="$GITHUBDIR/$repo/$branch"
 
 if [ "$branch" == "" ]; then
-  CONTRIB_DEPLOY_DIR="$GITHUBDIR/$owner/$repo/default"
+  CONTRIB_DEPLOY_DIR="$GITHUBDIR/$repo/default"
 fi
 
 if [ -d "$CONTRIB_DEPLOY_DIR" ]; then
@@ -37,7 +37,7 @@ else
   fi
 fi
 
-TYPE=`cat $CONTRIB_DEPLOY_DIR/$repo.info|grep ^type|awk -F='{print$1}'|xargs`
+TYPE=`cat $CONTRIB_DEPLOY_DIR/$repo.info|grep ^type|awk -F= '{print$1}'|xargs`
 
 TARGETFOLDER="";
 
