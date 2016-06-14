@@ -1,0 +1,61 @@
+#!/bin/sh
+
+BACKDROP_DEPLOY="$HOME/github/backdrop/backdrop"
+BACKDROP_GIT_REPO="https://github.com/backdrop/backdrop.git"
+BACKDROP_BRANCH="1.x"
+
+echo "Installing backdrop to " . $DOCROOT
+
+if [ -d "$BACKDROP_DEPLOY" ]; then
+  cd $BACKDROP_DEPLOY
+  git pull
+else
+  mkdir -p $BACKDROP_DEPLOY
+  cd $BACKDROP_DEPLOY
+  git clone -q $BACKDROP_GIT_REPO .
+  git checkout $BACKDROP_BRANCH
+fi
+
+
+# Go to domain directory.
+cd $DOCROOT
+
+# Link Backdrop files
+ln -s $BACKDROP_DEPLOY/* ./
+cp $BACKDROP_DEPLOY/.htaccess ./
+
+# Unlink settings.php and copy instead.
+rm -f settings.php
+cp $BACKDROP_DEPLOY/settings.php ./
+
+# Link directories to github folder
+
+echo '' >> settings.php
+echo '$config_directories[\'active\'] =\''$ZENCI_DEPLOY_DIR'/settings/config/active\';' >> settings.php
+echo '' >> settings.php
+echo '$config_directories[\'staging\'] =\''$ZENCI_DEPLOY_DIR'/settings/config/staging\';' >> settings.php
+
+# Unlink files and copy instead.
+rm -f files
+cp -r $BACKDROP_DEPLOY/files ./
+
+# Unlink sites and copy instead.
+rm -f sites
+cp -r $BACKDROP_DEPLOY/sites ./
+
+# Unlink modules and copy instead.
+rm -f modules
+cp -r $BACKDROP_DEPLOY/modules ./
+
+# Unlink modules and copy instead.
+rm -f layouts
+cp -r $BACKDROP_DEPLOY/layouts ./
+
+# Unlink themes and copy instead.
+rm -f themes
+cp -r $BACKDROP_DEPLOY/themes ./
+
+# Install Backdrop.
+DATABASE_PASS=`cat DATABASE_PASS_FILE`
+php $DOCROOT/core/scripts/install.sh --account-mail=$ACCOUNT_MAIL --account-name=$ACCOUNT_USER --account-pass="$ACCOUNT_PASS" --site-mail=$SITE_MAIL --site-name="$SITE_NAME" --db-url=mysql://$DATABASE_USER:$DATABASE_PASS@localhost/$DATABASE_NAME --root=$DOCROOT
+
