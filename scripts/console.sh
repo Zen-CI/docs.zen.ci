@@ -22,6 +22,8 @@
  *
  *  --enable    Enable module.
  *
+ *  --cleancache    Clean cache.
+ *
  *  --disable   Disable module.
  *
  * <module1>[ <module2>[ <module3> ...]]
@@ -63,6 +65,12 @@ if (!backdrop_bootstrap_is_installed()) {
 
 // Bootstrap to perform initial validation or other operations.
 backdrop_bootstrap(BACKDROP_BOOTSTRAP_FULL);
+
+if ($args['cleancache']) {
+  console_clean_cache();
+  exit(0);
+}
+
 
 if ($args['list']) {
   console_list_modules();
@@ -115,6 +123,8 @@ All arguments are long options.
 
   --enable    Enable module.
 
+  --cleancache    Cleancache.
+
   --disable   Disable module.
 
   <module1>[ <module2>[ <module3> ...]]
@@ -145,6 +155,7 @@ function console_parse_args() {
     'script' => '',
     'help' => FALSE,
     'list' => FALSE,
+    'cleancache' => FALSE,
     'enable' => FALSE,
     'disable' => FALSE,
     'root' => '',
@@ -312,3 +323,15 @@ function console_color_code($status) {
   return 0; // Default formatting.
 }
 
+/**
+ * Clean cache.
+ */
+function console_clean_cache() {
+  cache_clear_all();
+  $core = array('cache', 'path', 'filter', 'bootstrap', 'token', 'page');
+  $cache_bins = array_merge(module_invoke_all('flush_caches'), $core);
+  foreach ($cache_bins as $bin) {
+    cache($bin)->flush();
+  }
+  menu_rebuild();
+}

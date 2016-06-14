@@ -8,6 +8,8 @@ echo "Full site path: $DOCROOT"
 # Go to domain directory.
 cd $DOCROOT
 
+echo "Link documentation"
+ln -s $ZENCI_DEPLOY_DIR/Documentation $DOCROOT/files/Documentation
 
 echo "Linking modules from $ZENCI_DEPLOY_DIR"
 
@@ -15,8 +17,6 @@ mkdir -p $DOCROOT/modules/contrib
 mkdir -p $DOCROOT/themes/contrib
 mkdir -p $DOCROOT/layouts/contrib
 
-#link documentation
-ln -s $ZENCI_DEPLOY_DIR/Documentation $DOCROOT/files/
 
 #copy config
 cp $ZENCI_DEPLOY_DIR/settings/config/*.json $DOCROOT/files/config/active/
@@ -50,5 +50,7 @@ for module in `cat $ZENCI_DEPLOY_DIR/settings/modules.enable`; do
   php $ZENCI_DEPLOY_DIR/scripts/console.sh --root="$DOCROOT" --enable $module
 done
 
+php $ZENCI_DEPLOY_DIR/scripts/console.sh --root="$DOCROOT" --cleancache
+
 echo "Import Docs"
-$ZENCI_DEPLOY_DIR/modules/github_pages/github_pages_shell.php --root $DOCROOT
+php $ZENCI_DEPLOY_DIR/modules/github_pages/github_pages_shell.php --root $DOCROOT
