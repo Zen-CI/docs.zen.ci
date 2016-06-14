@@ -12,7 +12,7 @@ for project in `cat $ZENCI_DEPLOY_DIR/settings/contrib.list`; do
   branch=`echo $project|awk -F/ '{print$2}'`
   
   sh $ZENCI_DEPLOY_DIR/scripts/contrib.sh $repo $branch
-fi
+done
 
 echo "Enable Modules"
 
