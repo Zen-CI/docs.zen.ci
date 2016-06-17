@@ -85,7 +85,7 @@ Now you can see what **ZenCI** is reacting on your action repo page.
 
 ![deploy log](http://docs.zen.ci/files/Screen_Shot_2016-06-12_at_1.48.25_PM.png) 
 
-**Congratulations!** You deployed your [Drupal site](drupal7.examples.zen.ci)!
+**Congratulations!** You deployed your [Drupal site](http://drupal7.examples.zen.ci)!
 
 
 #### 5. What next?
