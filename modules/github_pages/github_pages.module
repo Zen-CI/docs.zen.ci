@@ -348,5 +348,5 @@ function github_pages_title($page){
  * Page callback.
  */
 function github_pages_page($page) {
-  return $page['html'];
+  return '<div class="content">' . $page['html'] . '</div>';
 }
