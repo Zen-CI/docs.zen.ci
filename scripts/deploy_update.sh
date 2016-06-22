@@ -7,7 +7,12 @@ cd $DOCROOT
 
 echo "Process contrib"
 for project in `cat $ZENCI_DEPLOY_DIR/settings/contrib.list`; do
-  $B -y dl $project
+  if [ "$project" == "radix_layouts" ];then 
+    # See issue: https://github.com/backdrop-contrib/radix_layouts/issues/9
+    $B -y dl $project --type=layout
+  else
+    $B -y dl $project
+  fi
 done
 
 #fix for radix
