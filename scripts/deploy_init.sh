@@ -11,12 +11,18 @@ cd $DOCROOT
 echo "Link documentation"
 ln -s $ZENCI_DEPLOY_DIR/Documentation $DOCROOT/files/Documentation
 
-echo "Linking modules from $ZENCI_DEPLOY_DIR"
+echo "Prepare directories for contrib"
 
 mkdir -p $DOCROOT/modules/contrib
 mkdir -p $DOCROOT/themes/contrib
 mkdir -p $DOCROOT/layouts/contrib
 mkdir -p $DOCROOT/libraries/contrib
+
+echo "Prepare files directory"
+mkdir -p $DOCROOT/files/private
+
+cd $DOCROOT/files
+ln -s $ZENCI_DEPLOY_DIR/files ./github
 
 #copy config
 cp $ZENCI_DEPLOY_DIR/settings/config/*.json $DOCROOT/files/config/active/

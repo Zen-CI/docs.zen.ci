@@ -16,7 +16,8 @@
     },
     "positions": {
         "header": [
-            "67ea4897-5c3c-4f2f-9707-7de2e4e94905"
+            "67ea4897-5c3c-4f2f-9707-7de2e4e94905",
+            "2e06b612-4576-4330-a400-cfe563f7e45a"
         ],
         "sidebar": [
             "0f3fa23e-38d9-4ae7-8006-6d0fbc6f665b",
@@ -46,6 +47,34 @@
                     "format": "full_html"
                 },
                 "uuid": "67ea4897-5c3c-4f2f-9707-7de2e4e94905",
+                "style": {
+                    "plugin": "default",
+                    "data": {
+                        "settings": {
+                            "classes": ""
+                        }
+                    }
+                }
+            }
+        },
+        "2e06b612-4576-4330-a400-cfe563f7e45a": {
+            "plugin": "system:header",
+            "data": {
+                "module": "system",
+                "delta": "header",
+                "settings": {
+                    "title_display": "default",
+                    "title": "",
+                    "style": "default",
+                    "block_settings": {
+                        "menu": "menu-github-pages",
+                        "logo": 1,
+                        "site_name": 1,
+                        "site_slogan": 1
+                    },
+                    "contexts": []
+                },
+                "uuid": "2e06b612-4576-4330-a400-cfe563f7e45a",
                 "style": {
                     "plugin": "default",
                     "data": {
