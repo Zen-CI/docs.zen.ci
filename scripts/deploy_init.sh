@@ -3,6 +3,8 @@
 #install backdrop
 sh $ZENCI_DEPLOY_DIR/scripts/backdrop_install.sh
 
+
+
 echo "Full site path: $DOCROOT"
 
 # Go to domain directory.
@@ -16,7 +18,7 @@ echo "Linking modules from $ZENCI_DEPLOY_DIR"
 mkdir -p $DOCROOT/modules/contrib
 mkdir -p $DOCROOT/themes/contrib
 mkdir -p $DOCROOT/layouts/contrib
-
+mkdir -p $DOCROOT/libraries/contrib
 
 #copy config
 cp $ZENCI_DEPLOY_DIR/settings/config/*.json $DOCROOT/files/config/active/
@@ -32,3 +34,6 @@ ln -s $ZENCI_DEPLOY_DIR/themes ./custom
 
 cd $DOCROOT/layouts
 ln -s $ZENCI_DEPLOY_DIR/layouts ./custom
+
+cd $DOCROOT/libraries
+ln -s $ZENCI_DEPLOY_DIR/libraries ./custom
