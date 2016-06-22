@@ -1,5 +1,6 @@
 #!/bin/sh
 
+source ~/.bashrc
 
 echo "Full site path: $DOCROOT"
 
