@@ -200,6 +200,7 @@ function github_pages_menu_item_add($path_alias, $menu) {
           ->fetchObject();
         if($parent_link) {
           $plid = $parent_link->mlid;
+          break;
         }
       }
     }
