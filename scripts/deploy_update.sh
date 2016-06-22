@@ -15,11 +15,6 @@ for project in `cat $ZENCI_DEPLOY_DIR/settings/contrib.list`; do
   fi
 done
 
-#fix for radix
-#if [ ! -L "$HOME/github/backdrop-contrib/radix_layouts/default" ]; then
-#  ln -s $HOME/github/backdrop-contrib/radix_layouts/default $DOCROOT/layouts/contrib/radix_layouts
-#fi
-
 echo "Enable Modules"
 
 for module in `cat $ZENCI_DEPLOY_DIR/settings/modules.enable`; do
@@ -32,4 +27,3 @@ $B -y --root="$DOCROOT" cc all
 echo "Import Docs"
 
 $B -y --root="$DOCROOT" github-pages-update
-
