@@ -1,12 +1,13 @@
 #!/bin/sh
 
+source ~/.bashrc
 echo "Installing backdrop to " . $DOCROOT
 
 # Go to domain directory.
 cd $DOCROOT
 
 #download latest backdrop CMS.
-b dl backdrop
+b -y dl backdrop
 
 mv backdrop/* ./
 mv backdrop/.htaccess ./

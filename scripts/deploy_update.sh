@@ -9,7 +9,7 @@ cd $DOCROOT
 
 echo "Process contrib"
 for project in `cat $ZENCI_DEPLOY_DIR/settings/contrib.list`; do
-  b dl $project
+  b -y dl $project
 done
 
 #fix for radix
@@ -21,12 +21,12 @@ echo "Enable Modules"
 
 for module in `cat $ZENCI_DEPLOY_DIR/settings/modules.enable`; do
   echo "Enable $module"
-  b --root="$DOCROOT" en $module
+  b -y --root="$DOCROOT" en $module
 done
 
-b --root="$DOCROOT" cc all
+b -y --root="$DOCROOT" cc all
 
 echo "Import Docs"
 
-b --root="$DOCROOT" github-pages-update
+b -y --root="$DOCROOT" github-pages-update
 
