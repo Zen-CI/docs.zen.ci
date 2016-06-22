@@ -1,13 +1,12 @@
 #!/bin/sh
 
-source ~/.bashrc
 echo "Installing backdrop to " . $DOCROOT
 
 # Go to domain directory.
 cd $DOCROOT
 
 #download latest backdrop CMS.
-b -y dl backdrop
+$B -y dl backdrop
 
 mv backdrop/* ./
 mv backdrop/.htaccess ./
@@ -23,5 +22,5 @@ _EOF
 
 # Install Backdrop.
 DATABASE_PASS=`cat $DATABASE_PASS_FILE`
-b si --account-mail=$ACCOUNT_MAIL --account-name=$ACCOUNT_USER --account-pass="$ACCOUNT_PASS" --site-mail=$SITE_MAIL --site-name="$SITE_NAME" --db-url=mysql://$DATABASE_USER:$DATABASE_PASS@localhost/$DATABASE_NAME --root=$DOCROOT
+$B si --account-mail=$ACCOUNT_MAIL --account-name=$ACCOUNT_USER --account-pass="$ACCOUNT_PASS" --site-mail=$SITE_MAIL --site-name="$SITE_NAME" --db-url=mysql://$DATABASE_USER:$DATABASE_PASS@localhost/$DATABASE_NAME --root=$DOCROOT
 

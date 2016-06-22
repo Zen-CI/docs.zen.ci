@@ -12,6 +12,7 @@ deploy:
       account_user: admin
       account_mail: admin@zen.ci
       account_pass: REPLACE
+      b: "php {home}/github/Gormartsen/b/b.php"
       site_mail: noreply@zen.ci
       site_name: "Documentation for ZenCI"
     scripts:

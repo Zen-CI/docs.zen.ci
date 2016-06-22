@@ -3,8 +3,6 @@
 #install backdrop
 sh $ZENCI_DEPLOY_DIR/scripts/backdrop_install.sh
 
-source ~/.bashrc
-
 echo "Full site path: $DOCROOT"
 
 # Go to domain directory.
