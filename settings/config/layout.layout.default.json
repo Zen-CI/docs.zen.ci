@@ -16,85 +16,36 @@
     },
     "positions": {
         "header": [
-            "84c43df4-1165-4faf-8700-c362a7153c0b",
-            "13b2f325-af26-40bb-8c61-97fe1d93f19f"
+            "67ea4897-5c3c-4f2f-9707-7de2e4e94905"
         ],
         "sidebar": [
-            "b7efc039-1518-4331-9808-8e5060a3caed",
-            "0f3fa23e-38d9-4ae7-8006-6d0fbc6f665b"
+            "0f3fa23e-38d9-4ae7-8006-6d0fbc6f665b",
+            "482124ac-c1c9-4cb8-8c5d-93a9ca436591"
         ],
         "content": [
             "default"
         ],
         "footer": [
+            "4f80d579-40da-490f-9100-f07ff647e268",
             "cd4d033d-3f67-4191-8655-85ee758877c0"
         ]
     },
     "content": {
-        "84c43df4-1165-4faf-8700-c362a7153c0b": {
-            "plugin": "system:header",
+        "67ea4897-5c3c-4f2f-9707-7de2e4e94905": {
+            "plugin": "layout:custom_block",
             "data": {
-                "module": "system",
-                "delta": "header",
-                "settings": {
-                    "title_display": "default",
-                    "title": "",
-                    "style": "default",
-                    "block_settings": {
-                        "menu": "user-menu",
-                        "logo": 1,
-                        "site_name": 1,
-                        "site_slogan": 1
-                    },
-                    "contexts": []
-                },
-                "uuid": "84c43df4-1165-4faf-8700-c362a7153c0b",
-                "style": {
-                    "plugin": "default",
-                    "data": {
-                        "settings": {
-                            "classes": ""
-                        }
-                    }
-                }
-            }
-        },
-        "13b2f325-af26-40bb-8c61-97fe1d93f19f": {
-            "plugin": "system:main-menu",
-            "data": {
-                "module": "system",
-                "delta": "main-menu",
-                "settings": {
-                    "title_display": "none",
-                    "title": "",
-                    "style": "default",
-                    "block_settings": [],
-                    "contexts": []
-                },
-                "uuid": "13b2f325-af26-40bb-8c61-97fe1d93f19f",
-                "style": {
-                    "plugin": "default",
-                    "data": {
-                        "settings": {
-                            "classes": ""
-                        }
-                    }
-                }
-            }
-        },
-        "b7efc039-1518-4331-9808-8e5060a3caed": {
-            "plugin": "user:login",
-            "data": {
-                "module": "user",
-                "delta": "login",
+                "module": "layout",
+                "delta": "custom_block",
                 "settings": {
                     "title_display": "default",
                     "title": "",
                     "style": "default",
                     "block_settings": [],
-                    "contexts": []
+                    "contexts": [],
+                    "content": "<div class=\"alert alert-info\" role=\"alert\" style=\"font-size:larger;\">\n<i class=\"fa fa-exclamation-circle\" aria-hidden=\"true\" style=\"color: red;\"></i> &nbsp;&nbsp;\nWe are hardly working to fill up and structure documentation. Feel free to ask any question on <a href=\"http://gitter.im/Zen-CI/chat\"><i class=\"fa fa-comments-o\" aria-hidden=\"true\"></i> Gitter</a></div>",
+                    "format": "full_html"
                 },
-                "uuid": "b7efc039-1518-4331-9808-8e5060a3caed",
+                "uuid": "67ea4897-5c3c-4f2f-9707-7de2e4e94905",
                 "style": {
                     "plugin": "default",
                     "data": {
@@ -132,6 +83,32 @@
                 }
             }
         },
+        "482124ac-c1c9-4cb8-8c5d-93a9ca436591": {
+            "plugin": "block:gitter_link",
+            "data": {
+                "module": "block",
+                "delta": "gitter_link",
+                "settings": {
+                    "title_display": "default",
+                    "title": "",
+                    "style": "default",
+                    "block_settings": {
+                        "delta": "gitter_link",
+                        "reusable": true
+                    },
+                    "contexts": []
+                },
+                "uuid": "482124ac-c1c9-4cb8-8c5d-93a9ca436591",
+                "style": {
+                    "plugin": "default",
+                    "data": {
+                        "settings": {
+                            "classes": ""
+                        }
+                    }
+                }
+            }
+        },
         "default": {
             "plugin": "system:main",
             "data": {
@@ -145,6 +122,32 @@
                     "contexts": []
                 },
                 "uuid": "default",
+                "style": {
+                    "plugin": "default",
+                    "data": {
+                        "settings": {
+                            "classes": ""
+                        }
+                    }
+                }
+            }
+        },
+        "4f80d579-40da-490f-9100-f07ff647e268": {
+            "plugin": "block:footer_copyright",
+            "data": {
+                "module": "block",
+                "delta": "footer_copyright",
+                "settings": {
+                    "title_display": "none",
+                    "title": "",
+                    "style": "default",
+                    "block_settings": {
+                        "delta": "footer_copyright",
+                        "reusable": true
+                    },
+                    "contexts": []
+                },
+                "uuid": "4f80d579-40da-490f-9100-f07ff647e268",
                 "style": {
                     "plugin": "default",
                     "data": {
@@ -172,7 +175,7 @@
                     "plugin": "default",
                     "data": {
                         "settings": {
-                            "classes": ""
+                            "classes": "pull-right"
                         }
                     }
                 }
