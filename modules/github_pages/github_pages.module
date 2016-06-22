@@ -56,6 +56,24 @@ function github_pages_menu() {
     'access arguments' => array('access github pages'),
   );
 
+  $items['github_pages/%github_page/%/%'] = array(
+    'title callback' => 'github_pages_title',
+    'title arguments' => array(1),
+    'page callback' => 'github_pages_page',
+    'page arguments' => array(1),
+    'load arguments' => array('%map'),
+    'access arguments' => array('access github pages'),
+  );
+
+  $items['github_pages/%github_page/%/%/%'] = array(
+    'title callback' => 'github_pages_title',
+    'title arguments' => array(1),
+    'page callback' => 'github_pages_page',
+    'page arguments' => array(1),
+    'load arguments' => array('%map'),
+    'access arguments' => array('access github pages'),
+  );
+
 
   $items['admin/config/github_pages'] = array(
     'title' => 'Github Pages configuration',
