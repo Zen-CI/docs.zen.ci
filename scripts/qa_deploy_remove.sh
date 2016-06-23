@@ -10,5 +10,7 @@ mysql -u root mysql -e "DROP USER '"$DATABASE_USER"'@'localhost';"
 rm -f $HOME/conf.d/$DOMAIN.conf
 
 #remove DOCROOT
-chmod 755 $DOCROOT/sites/default
+chmod -R 755 $DOCROOT/files
 rm -rf $DOCROOT
+sudo apachectl restart
+
