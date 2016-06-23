@@ -1,5 +1,5 @@
 deploy:
-  branch:
+  master:
     server: docs.zen.ci
     username: zenci
     dir: '{home}/github/{repo_owner}/{repo_name}/{branch}'
