@@ -5,6 +5,9 @@ mysqladmin -uroot create $DATABASE_NAME
 mysql -u root mysql -e "CREATE USER '"$DATABASE_USER"'@'localhost';"
 mysql -u root mysql -e "GRANT ALL ON $DATABASE_NAME.* TO '"$DATABASE_USER"'@'localhost' IDENTIFIED BY '"$DATABASE_PASS"';"
 
+echo "$DATABASE_PASS" > /tmp/$DOMAIN.pass
+export DATABASE_PASS_FILE="/tmp/$DOMAIN.pass"
+
 #prepare DOCROOT
 mkdir $DOCROOT
 
