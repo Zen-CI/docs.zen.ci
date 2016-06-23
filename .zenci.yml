@@ -4,8 +4,8 @@ deploy:
     username: zenci
     dir: '{home}/github/{repo_owner}/{repo_name}/{branch}'
     env_vars:
-      docroot: '{home}/domains/docs2.zen.ci'
-      domain: 'docs2.zen.ci'
+      docroot: '{home}/domains/docs.zen.ci'
+      domain: 'docs.zen.ci'
       database_name: zenci_docs
       database_user: zenci_docs
       database_pass_file: '{home}/docs.pass'
@@ -18,3 +18,23 @@ deploy:
     scripts:
       init: '{deploy_dir}/scripts/deploy_init.sh'
       after: '{deploy_dir}/scripts/deploy_update.sh'
+  pull_request:
+    server: qa.docs.zen.ci
+    username: test
+    dir: '{home}/github/{repo_owner}/{repo_name}/pr/{pr_number}'
+    env_vars:
+      docroot: '{home}/domains/{pr_number}.{branch}.qa.docs.zen.ci'
+      domain: '{pr_number}.{branch}.qa.docs.zen.ci'
+      database_name: 'test_{branch}_{pr_number}'
+      database_user: 'test_{branch}_{pr_number}'
+      database_pass: 'test_{branch}_{pr_number}'
+      account_user: admin
+      account_mail: admin@zen.ci
+      account_pass: REPLACE_WITH_ADMIN_PASSWORD
+      site_mail: noreply@zen.ci
+      site_name: '{pr_number} {branch} QA site for {repo_owner}/{repo_name}'
+      default_theme: "flame"
+    scripts:
+      init: '{deploy_dir}/scripts/qa_deploy_init.sh'
+      after: '{deploy_dir}/scripts/deploy_update.sh'
+      remove: '{deploy_dir}/scripts/qa_deploy_remove.sh'
