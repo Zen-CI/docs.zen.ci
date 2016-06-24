@@ -13,7 +13,7 @@ export ACCOUNT_USER="admin"
 export ACCOUNT_PASS="123"
 export SITE_MAIL="noreply@zen.ci"
 export SITE_NAME="localcopy docs.zen.ci"
-export B="php /Users/gor/Sites/Repositories/GitHub/Gormartsen/b/b.php"
+export B="b"
 export ZENCI_DEPLOY_DIR="$PWD"
 export DEPLOY_DIR="$PWD"
 
@@ -28,7 +28,9 @@ if [ ! -d "$DOCROOT" ]; then
   echo "$DATABASE_PASS" > /tmp/$DOMAIN.pass
   export DATABASE_PASS_FILE="/tmp/$DOMAIN.pass"
   sh $PWD/scripts/deploy_init.sh
-
+  cd $DOCROOT
+  ln -s $DEPLOY_DIR/scripts/routing.php ./
+  cd $PWD
 fi
 
 sh $PWD/scripts/deploy_update.sh
