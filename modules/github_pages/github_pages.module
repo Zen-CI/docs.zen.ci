@@ -161,6 +161,7 @@ function github_pages_menu_item_update($path_alias, $menu) {
     $page_load_path = mb_substr($path_alias['source'], mb_strlen('github_pages/'));
     $page = github_page_load($page_load_path);
     $menu_item['link_title'] = $page['title'];
+    $menu_item['weight'] = github_pages_item_weight($page['title']);
     menu_link_save($menu_item);
   }
 }
@@ -230,7 +231,7 @@ function github_pages_menu_item_add($path_alias, $menu) {
     'mlid' => 0,
     'plid' => $plid,
     'menu_name' => $menu,
-    'weight' => 0,
+    'weight' => github_pages_item_weight($page['title']),
     'link_path' => $path_alias['source'],
     'options' => array(),
     'module' => 'menu',
@@ -240,6 +241,28 @@ function github_pages_menu_item_add($path_alias, $menu) {
   );
 
   menu_link_save($item);
+}
+/**
+ * Return weight by title.
+ */
+function github_pages_item_weight($title) {
+  $config = config('github_pages.settings');
+  $directory_path = $config->get('directory');
+  $weight_file = $directory_path . '/menu.weight';
+  $weight = 0;
+  if(is_file($weight_file)) {
+    $content = file($weight_file);
+    if(!empty($content)){
+      foreach($content as $line){
+        list($line_title, $line_weight) = explode(":", $line);
+        $line_title = trim($line_title);
+        if(0 == strcmp($line_title, $title)) {
+          return (int)$line_weight;
+        }
+      }
+    }
+  }
+  return $weight;
 }
 
 /**
@@ -335,6 +358,8 @@ function _github_page_load($path) {
         }
       }
       $page['title'] = mb_substr($content[0], $pos);
+      $page['title'] = trim($page['title']);
+      $page['title'] = check_plain($page['title']);
       unset($content[0]);
     }
     $content = implode("", $content);
