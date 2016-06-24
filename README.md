@@ -2,7 +2,7 @@
 This is the documentation site for ZenCI! (http://docs.zen.ci/)
 
 ## How to contribute
-Before you can contribute, you need to have a compatible DEV enviorment:
+Before you can contribute, you need to have a compatible DEV environment:
 - Linux or MacOS
 - php 5.4 or higher version.
 - MySQL
