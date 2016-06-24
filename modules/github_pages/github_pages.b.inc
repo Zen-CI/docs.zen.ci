@@ -9,7 +9,6 @@ function github_pages_b_command() {
     'bootstrap' => B_BOOTSTRAP_FULL,
     'description' => 'Update github pages aliases.',
     'callback' => 'github_pages_command_update',
-    'aliases' => array('cc'),
   );
   return $items;
 }

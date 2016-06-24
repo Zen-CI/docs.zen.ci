@@ -5,8 +5,8 @@
 > Quality means doing it right even when no one is looking. ~Henry Ford
 
 This guide extend:
-- [Deploy  Drupal 7.x](http://docs.zen.ci/http://docs.zen.ci/Deploy/Deploy Drupal 7.x)
-- [QA server for Drupal 7.x](http://docs.zen.ci/qa-server/qa-server-drupal-7x)
+- [Deploy  Drupal 7.x](http://docs.zen.ci/Deploy/Deploy%20Drupal%207.x)
+- [QA server for Drupal 7.x](http://docs.zen.ci/QA%20server/QA%20server%20for%20Drupal%207.x)
 
 Please check it before continue.
 

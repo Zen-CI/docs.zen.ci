@@ -26,7 +26,8 @@ done
 echo "Enable Modules"
 
 for module in `cat $ZENCI_DEPLOY_DIR/settings/modules.enable`; do
-  installed=`$B pml |grep $project| grep '[v]'`
+  installed=`$B pml |grep $module| grep '[v]'`
+  
   if [ "$installed" == "" ];then
     echo "Enable $module"
     $B -y --root="$DOCROOT" en $module
