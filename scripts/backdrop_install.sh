@@ -22,5 +22,5 @@ _EOF
 
 # Install Backdrop.
 DATABASE_PASS=`cat $DATABASE_PASS_FILE`
-$B si --account-mail=$ACCOUNT_MAIL --account-name=$ACCOUNT_USER --account-pass="$ACCOUNT_PASS" --site-mail=$SITE_MAIL --site-name="$SITE_NAME" --db-url=mysql://$DATABASE_USER:$DATABASE_PASS@localhost/$DATABASE_NAME --root=$DOCROOT
+$B si --account-mail=$ACCOUNT_MAIL --account-name=$ACCOUNT_USER --account-pass="$ACCOUNT_PASS" --site-mail=$SITE_MAIL --site-name="$SITE_NAME" --db-url=mysql://$DATABASE_USER:$DATABASE_PASS@$DATABASE_SERVER/$DATABASE_NAME --root=$DOCROOT
 

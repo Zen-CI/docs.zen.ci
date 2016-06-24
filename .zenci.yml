@@ -9,6 +9,7 @@ deploy:
       database_name: zenci_docs
       database_user: zenci_docs
       database_pass_file: '{home}/docs.pass'
+      database_server: localhost
       account_user: admin
       account_mail: admin@zen.ci
       account_pass: REPLACE
@@ -28,6 +29,7 @@ deploy:
       database_name: 'docs_{branch}_{pr_number}'
       database_user: 'docs_{branch}_{pr_number}'
       database_pass: 'docs_{branch}_{pr_number}'
+      database_server: localhost
       account_user: admin
       account_mail: admin@zen.ci
       account_pass: REPLACE_WITH_ADMIN_PASSWORD

@@ -7,8 +7,12 @@
     padding: 0px 15px;
 }
 
+a.navbar-brand img {
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
 /* Logo */
-a.logo img {
+a.logo img{
   width: 32px;
 }
 
@@ -63,6 +67,7 @@ a.logo img:hover, #block-block-2 img:hover {
   }
 }
 
+
 .field-name-field-taxonomy field-item {
   display: inline;
   padding: 0px 5px;
@@ -82,9 +87,46 @@ blockquote {
 
 /* Book navigation*/
 
+.block-menu-menu-github-pages {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
 .block-menu-menu-github-pages ul.menu {
   -webkit-padding-start: 0px;
+  margin-left: 10px;
+  padding-left: 0px;
 }
+
+.block-menu-menu-github-pages ul.menu li {
+  padding: 10px 5px 0px 0px;
+  margin-left: 5px;
+  padding-left: 0px;
+}
+
+.block-menu-menu-github-pages ul.menu li a {
+  padding-left: 5px;
+}
+
+.block-menu-menu-github-pages ul.menu li a.active::before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\f105";
+  padding-right: 2px;
+  color: orange;
+  margin-left: -8px;
+}
+
+@media (max-width: 970px) {
+  .block-block-gitter-link {
+    display: none;
+  }
+}
+
 /* Footer style. */
 
 .footer {

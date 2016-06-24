@@ -7,7 +7,7 @@ cd $DOCROOT
 
 #copy config
 cp $ZENCI_DEPLOY_DIR/settings/config/*.json $DOCROOT/files/config/active/
-sed -i "s|DEPLOY_DIR|$ZENCI_DEPLOY_DIR|g" $DOCROOT/files/config/active/github_pages.settings.json
+sed -i -e "s|DEPLOY_DIR|$ZENCI_DEPLOY_DIR|g" $DOCROOT/files/config/active/github_pages.settings.json
 
 
 echo "Process contrib"
