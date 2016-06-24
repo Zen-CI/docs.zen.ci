@@ -4,7 +4,7 @@
 
 > Quality is the ally of schedule and cost, not their adversary. If we have to sacrifice quality to meet schedule, it’s because we are doing the job wrong from the very beginning.  ~James A. Ward
 
-This guide extend [Deploy  Drupal 7.x](http://docs.zen.ci/deploy/deploy-drupal-7x)
+This guide extend [Deploy  Drupal 7.x](http://docs.zen.ci/Deploy/Deploy%20Drupal%207.x)
 
 Before we start, you need to have:
 - a [Github account](https://github.com).
