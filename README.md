@@ -9,10 +9,9 @@ Before you can contribute, you need to have a compatible DEV environment:
 
 To initialize your dev copy:
 
-1. Install [B](https://github.com/backdrop-contrib/b) on your dev machine.
-2. Fork & clone this repository
-3. Update with proper credential scripts/devel.sh script if necessary. 
-4. start php built in web server:
+1. Fork & clone this repository
+2. Update with proper credential script `scripts/devel.sh` if necessary. 
+3. start php built in web server:
 ```
 # sh scripts/devel.sh
 .....
