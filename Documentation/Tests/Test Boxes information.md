@@ -78,7 +78,7 @@ box:
 Name | OS | Details
 ------- | ------- | -------
 leam-php53 | CentOS6 | Nginx Apache Mysql mod_php 5.3.x with xcache
-leam-php70 | CentOS6 | Nginx Apache Mysql mod_php 7.0.x with xcache
+leam-php70 | CentOS6 | Nginx Apache Mysql mod_php 7.0.x with opcache
 
 We are working on adding more prebuilt images.
 
