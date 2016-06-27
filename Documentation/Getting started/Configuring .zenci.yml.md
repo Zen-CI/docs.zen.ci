@@ -71,7 +71,7 @@ test:
 ```
 
 There is 2 new sections:
-- box - See more details about it [here](http://docs.zen.ci/tests/test-boxes-information)
+- box - See more details about it [here](http://docs.zen.ci/Tests/Test%20Boxes%20information)
 - tests - list of scripts to run after code has been deployed on test box.
 
 If you want to run tests on **your own box**, don't define box. Define **server** and **username** instead.
