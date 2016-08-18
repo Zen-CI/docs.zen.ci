@@ -42,11 +42,11 @@ Right now we have next predefined boxes:
 Name | vCPU | Memory | OS | Drive | Extra 
 ------- | ------- | ------- | ------- | ------- | ------- | 
 **dual-leam-php53** | 2 | 1.8GB | CentOS6 | 10GB | mod_php 5.3.x with xcache
-**dual-leam-php70** | 2 | 1.8GB | CentOS6 | 10GB | mod_php 7.0.x with xcache
+**dual-leam-php70** | 2 | 1.8GB | CentOS6 | 10GB | mod_php 7.0.x with opcache
 **quadro-leam-php53** | 4 | 3.6GB | CentOS6 | 10GB | mod_php 5.3.x with xcache
-**quadro-leam-php70** | 4 | 3.6GB | CentOS6 | 10GB | mod_php 7.0.x with xcache
+**quadro-leam-php70** | 4 | 3.6GB | CentOS6 | 10GB | mod_php 7.0.x with opcache
 **octo-leam-php53** | 8 | 7.2GB | CentOS6 | 10GB | mod_php 5.3.x with xcache
-**octo-leam-php70**  | 8 | 7.2GB | CentOS6 | 10GB | mod_php 7.0.x with xcache
+**octo-leam-php70**  | 8 | 7.2GB | CentOS6 | 10GB | mod_php 7.0.x with opcache
 
 - **This boxes are preemptible.**  There is a chance that your tests could be interrupted. In this case, tests will be restarted as soon as possible.
 - **Permissions** - **init** and **tests** scripts run under user **test**. However you can run **sudo some_root_required_cmd** with no password. 
