@@ -6,7 +6,7 @@ Before you can contribute, you need to have a compatible DEV environment:
 - Linux or MacOS
 - php 5.4 or higher version.
 - MySQL
-
+test
 To initialize your dev copy:
 
 1. Fork & clone this repository
