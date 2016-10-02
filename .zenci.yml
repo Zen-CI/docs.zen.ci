@@ -1,7 +1,7 @@
 deploy:
   master:
-    server: docs.zen.ci
-    username: zenci
+    server: qa.docs.zen.ci
+    username: zen
     dir: '{home}/github/{repo_owner}/{repo_name}/{branch}'
     env_vars:
       docroot: '{home}/domains/docs.zen.ci'
