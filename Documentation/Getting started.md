@@ -1,5 +1,7 @@
 # Getting started
 
+# meetup example
+
 **ZenCI** is automation tool that helps you to deploy and test your software. 
 
 It works only with **GitHub** and inherits many UI& UX behaviours from **GitHub** to minimize adaptation period.
